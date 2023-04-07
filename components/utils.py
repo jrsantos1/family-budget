@@ -22,8 +22,15 @@ class utils:
             dcc.DatePickerSingle(id=id_data_picker, className='w-100')
         ], md=md, className='d-flex flex-column')
     @classmethod
-    def input(cls,label, id_input, md):
+    def input(cls,label, id_input, md, tipo):
         return dbc.Col(children=[
             html.Label(children=label),
-            dbc.Input(type='number', id=id_input)
+            dbc.Input(type=tipo, id=id_input)
+        ], md=md)
+
+    @classmethod
+    def text_area(cls, label, id_input, md):
+        return dbc.Col(children=[
+            html.Label(children=label),
+            dbc.Textarea(id=id_input, size='lg')
         ], md=md)

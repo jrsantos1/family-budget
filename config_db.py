@@ -9,5 +9,5 @@ class conection_sqllite_3:
         return cls.con
 
     @classmethod
-    def get_connection_cursor(self):
+    def get_connection_cursor(self) -> con.cursor():
         return self.con.cursor()

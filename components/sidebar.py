@@ -34,12 +34,18 @@ layout = dbc.Container(children=[
                         utils.drop_down_group(id_dropdown='membro_id', label='Membro', md=3, options=bll.getIngrantes()),
                         utils.drop_down_group(id_dropdown='categoria_id', label='Categoria Gasto', md=3, options=bll.getCategorias()),
                         utils.drop_down_group(id_dropdown='sub_categoria_id', label='Sub Categoria', md=2),
-                        utils.input(id_input='valor_id', label='Valor', md=2)
+                        utils.input(id_input='valor_id', label='Valor', md=2, tipo='number')
                     ]),
+                    dbc.Row([
+                        utils.text_area(id_input='gastos_obs_id', label='Obervações: ', md=12)
+                    ], className='mt-4')
                 ], md=12),
                 html.Hr(),
                 dbc.Button("Inserir", outline=True, color="primary", className="me-1 w-100", id='btn_inserir_gasto_id')
 
+            ]),
+            dbc.ModalFooter(children=[
+                html.P(id='msg_cadastro_id')
             ])
         ], is_open=False, id='modal_nova_despesa', size="xl")
 
@@ -59,3 +65,23 @@ def get_sub_categoria(value):
     if value == None:
         raise PreventUpdate
     return bll.getSubCategoriaByCategoryId(value)
+
+@app.callback(Output('msg_cadastro_id', 'children'),
+              Output('msg_cadastro_id', 'className'),
+              Input('btn_inserir_gasto_id', 'n_clicks'),
+              State('data_gasto_id', 'date'),
+              State('membro_id', 'value'),
+              State('categoria_id', 'value'),
+              State('sub_categoria_id', 'value'),
+              State('valor_id', 'value'),
+              State('gastos_obs_id', 'value'))
+def inserir_gasto(click, data, membro_id, categoria_id, subcategoria_id, valor, obs):
+    if click:
+        try:
+            print(data)
+            bll.inserirGasto(expense_date=data, membro_id=membro_id, categoria_id=categoria_id, sub_category_id=subcategoria_id, valor=valor, obs=obs)
+            return 'Gasto cadastrado com suceso', 'text-success'
+        except Exception as e:
+            return 'Erro ao inserir gasto: ' + e, 'text-danger'
+    else:
+        raise PreventUpdate

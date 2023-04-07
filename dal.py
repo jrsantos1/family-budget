@@ -40,4 +40,18 @@ class dal:
         except Exception as e:
             print(f"Erro {e}")
 
+    @classmethod
+    def inserirGasto(cls, member_id, category_id, sub_category_id, expense_date, valor, obs) -> pd.DataFrame:
+        try:
+            with sqlite3.get_connection() as con:
+                query = f''' insert into expense (member_id, category_id, sub_category_id, expense_date, valor, obs) values ({member_id},{category_id},{sub_category_id},'{expense_date}',{valor},'{obs}')'''
+                cursor = con.cursor()
+                cursor.execute(query)
+                con.commit()
+        except Exception as e:
+            con.rollback()
+            print(f"Erro {e}")
+
+
+
 

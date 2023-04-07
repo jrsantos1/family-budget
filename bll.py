@@ -27,4 +27,9 @@ class bll:
         dados.rename(columns={'id': 'value', 'name': 'label'}, inplace=True)
         return dados.to_dict(orient='records')
 
+    @classmethod
+    def inserirGasto(cls, member_id, category_id, sub_category_id, expense_date, valor, obs):
+        dal.inserirGasto(member_id, category_id, sub_category_id, expense_date, valor, obs)
+
+
 
