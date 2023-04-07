@@ -2,7 +2,7 @@ import sqlite3
 
 class conection_sqllite_3:
 
-    con = sqlite3.connect('family_budget.db')
+    con = sqlite3.connect('family_budget.db', check_same_thread=False)
 
     @classmethod
     def get_connection(cls):
