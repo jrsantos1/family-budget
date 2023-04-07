@@ -1,3 +1,5 @@
+from cgitb import html
+
 from config import *
 from dash import html
 from dash.dependencies import Input, Output
@@ -11,15 +13,16 @@ app.layout = dbc.Container(children=[
     dbc.Row([
         dbc.Col([
             dcc.Location(id="url"),
-            sidebar.laytout
-        ], md=2, className="mt-5"),
+            sidebar.layout
+        ], md=2, style={'backgroundColor': 'rgba(0, 0, 0, 0.78)','height': '100vh'}),
         dbc.Col([
             content
         ], md=10)
-    ])
+    ], style={})
 ], fluid=True)
 
-@app.callback(Output(component_id='page-content', component_property='children'),Input(component_id='url', component_property='pathname'))
+@app.callback(Output(component_id='page-content', component_property='children'),
+              Input(component_id='url', component_property='pathname'))
 def render_page(pathname):
     if pathname == '/' or pathname == '/relatorio':
         return relatorio.layout
