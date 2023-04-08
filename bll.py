@@ -10,7 +10,7 @@ class bll:
         return dados.to_dict(orient='records')
 
     @classmethod
-    def getGastos(cls) -> pd.DataFrame:
+    def getGastos(cls) -> dict:
         dados =  dal.getGastos()
         dados.rename(columns={'id': 'value', 'name': 'label'}, inplace=True)
         return dados.to_dict(orient='records')
@@ -29,7 +29,7 @@ class bll:
 
     @classmethod
     def inserirGasto(cls, member_id, category_id, sub_category_id, expense_date, valor, obs):
-        dal.inserirGasto(member_id, category_id, sub_category_id, expense_date, valor, obs)
+        return dal.inserirGasto(member_id, category_id, sub_category_id, expense_date, valor, obs)
 
 
 

@@ -25,9 +25,8 @@ class dal:
     def getGastos(cls) -> pd.DataFrame:
         try:
             with sqlite3.get_connection() as con:
-                query = 'select * from expense'
-                dados = pd.read_sql(sql=query, con=con).to_dict(orient='records')
-                return dados
+                query = 'select * from view_expense'
+                return pd.read_sql(sql=query, con=con)
         except Exception as e:
             print(f"Erro {e}")
 
@@ -48,9 +47,11 @@ class dal:
                 cursor = con.cursor()
                 cursor.execute(query)
                 con.commit()
+                return True
         except Exception as e:
             con.rollback()
             print(f"Erro {e}")
+            return False
 
 
 

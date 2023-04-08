@@ -78,10 +78,12 @@ def get_sub_categoria(value):
 def inserir_gasto(click, data, membro_id, categoria_id, subcategoria_id, valor, obs):
     if click:
         try:
-            print(data)
-            bll.inserirGasto(expense_date=data, membro_id=membro_id, categoria_id=categoria_id, sub_category_id=subcategoria_id, valor=valor, obs=obs)
-            return 'Gasto cadastrado com suceso', 'text-success'
+            novo_registo = bll.inserirGasto(expense_date=data, member_id=membro_id, category_id=categoria_id, sub_category_id=subcategoria_id, valor=valor, obs=obs)
+            if novo_registo:
+                return 'Gasto inserido com suceso', 'text-success'
+            else:
+                return 'Erro ao inserir gasto, verifique os campos e tente novamente ', 'text-danger'
         except Exception as e:
-            return 'Erro ao inserir gasto: ' + e, 'text-danger'
+            print(e)
     else:
         raise PreventUpdate
