@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3936a9e-e51d-436f-9767-33449b2f2d08" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/extrato.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/extrato.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/sidebar.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/sidebar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dal.py" beforeDir="false" afterPath="$PROJECT_DIR$/dal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/family_budget.db" beforeDir="false" afterPath="$PROJECT_DIR$/family_budget.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +20,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2NtiHBv20ScGcyAGDi9As6tAQn5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/jrsantos1/projetos/projetos-pessoais/family-budget"
+  }
+}]]></component>
   <component name="RunManager" selected="Python.index">
     <configuration name="bll" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="teste-apagar" />
@@ -161,7 +161,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
