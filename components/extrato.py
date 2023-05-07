@@ -14,7 +14,7 @@ layout = dbc.Col(children=[
         dbc.Row([
             dbc.Col([
                 html.H4("últimos lançamentos"),
-                dash_table.DataTable(data=bll.getGastos(), columns=[{'id': c, 'name': c} for c in pd.DataFrame(bll.getGastos()).columns])
+                dash_table.DataTable(data=bll.getGastos(), columns=[{'id': c, 'name': c} for c in pd.DataFrame(bll.getGastos()).columns], id='tb_extrato_id')
             ], md=6, style={'height': '90vh'}),
             dbc.Col([
                 html.H1("Extrato")

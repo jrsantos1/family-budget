@@ -1,7 +1,7 @@
 from builtins import id
 
 import dash_bootstrap_components as dbc
-import dash_core_components as dcc
+from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output, State
 from config import app
@@ -68,6 +68,7 @@ def get_sub_categoria(value):
 
 @app.callback(Output('msg_cadastro_id', 'children'),
               Output('msg_cadastro_id', 'className'),
+              Output('tb_extrato_id', 'data'),
               Input('btn_inserir_gasto_id', 'n_clicks'),
               State('data_gasto_id', 'date'),
               State('membro_id', 'value'),
@@ -80,9 +81,9 @@ def inserir_gasto(click, data, membro_id, categoria_id, subcategoria_id, valor, 
         try:
             novo_registo = bll.inserirGasto(expense_date=data, member_id=membro_id, category_id=categoria_id, sub_category_id=subcategoria_id, valor=valor, obs=obs)
             if novo_registo:
-                return 'Gasto inserido com suceso', 'text-success'
+                return 'Gasto inserido com suceso', 'text-success', bll.getGastos()
             else:
-                return 'Erro ao inserir gasto, verifique os campos e tente novamente ', 'text-danger'
+                return 'Erro ao inserir gasto, verifique os campos e tente novamente ', 'text-danger', bll.getGastos()
         except Exception as e:
             print(e)
     else:
